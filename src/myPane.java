@@ -11,7 +11,8 @@ public class myPane {
     public static void main(String[] args) throws IOException {
         JFrame Pane = new Pane();
         Figure bird = new Figure(1, 500,500);
-
+        Figure pipe = new Figure(2, 500,500);
         Pane.add(bird);
+        Pane.add(pipe);
     }
 }

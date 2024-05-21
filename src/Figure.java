@@ -37,6 +37,16 @@ class Figure extends JComponent
                     throw new RuntimeException(e);
                 }
             }
+            case 2 ->
+            {
+                try {
+                    BufferedImage myPicture = ImageIO.read(new File("src/Pipe.png"));
+                    g.drawImage(myPicture,0,0, width, height, null);
+                } catch (IOException e) {
+                    System.out.println("nen");
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }
