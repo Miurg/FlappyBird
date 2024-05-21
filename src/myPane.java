@@ -10,9 +10,14 @@ import java.io.IOException;
 public class myPane {
     public static void main(String[] args) throws IOException {
         JFrame Pane = new Pane();
-        Figure bird = new Figure(1, 500,500);
-        Figure pipe = new Figure(2, 500,500);
-        Pane.add(bird);
-        Pane.add(pipe);
+        Figure bird = new Figure(1);
+        Figure pipes = new Figure(2);
+        Figure pipe = new Figure(2);
+        pipe.setBounds(0,0,100,100);
+        pipes.setBounds(100,100,10,10);
+        bird.setBounds(100,100,100,100);
+        Pane.getLayeredPane().add(pipe);
+        Pane.getLayeredPane().add(bird);
+        Pane.getLayeredPane().add(pipes);
     }
 }
