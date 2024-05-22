@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Pane extends JFrame {
-    javax.swing.JLayeredPane lp = getLayeredPane();
-    public Pane() {
+public class MainPane extends JFrame {
+    public javax.swing.JLayeredPane MainLayeredPane = getLayeredPane();
+    public MainPane() {
         super("Flappy Bird");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         final Toolkit toolkit = Toolkit.getDefaultToolkit();
