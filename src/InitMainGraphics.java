@@ -1,12 +1,11 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class initMainGraphics {
-    public initMainGraphics(JFrame Pane) throws IOException {
+public class InitMainGraphics {
+    public InitMainGraphics(JFrame Pane) throws IOException {
 
         BufferedImage pictureOfBird = ImageIO.read(new File("src/png/Bird.png"));
         GraphicComponent birdComponent = new GraphicComponent("Bird", pictureOfBird);
@@ -15,7 +14,7 @@ public class initMainGraphics {
         BufferedImage floorPicture = ImageIO.read(new File("src/png/Floor.png"));
         GraphicComponent floorComponent = new GraphicComponent("Floor", floorPicture);
 
-        birdComponent.setBounds(0,0,Pane.getHeight()/10,Pane.getHeight()/10);
+        birdComponent.setBounds(Pane.getWidth()/2,Pane.getHeight()/4,Pane.getHeight()/10,Pane.getHeight()/10);
         backgroundComponent.setBounds(0,-(Pane.getHeight()-floorPicture.getHeight()),Pane.getWidth(),Pane.getHeight());
         floorComponent.setBounds(0, floorPicture.getHeight(), Pane.getWidth(), Pane.getHeight()-floorPicture.getHeight());
 
