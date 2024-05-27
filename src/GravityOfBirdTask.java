@@ -3,11 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.TimerTask;
 import java.util.Vector;
 
-public class GravityOfBirdTask extends TimerTask {
+public class GravityOfBirdTask extends TimerTask implements KeyListener {
 
     Component bird;
 
@@ -23,6 +24,7 @@ public class GravityOfBirdTask extends TimerTask {
     int numberOfSpacePressedInGravity = 0;
     float leftoverVelocity = 0f;
     float time = 100;
+    int numberOfSpacePressed = 0;
 
     float maxVelocity = 10;
     GravityOfBirdTask (Component bird, JFrame Pane, float timestep, int jumpPower)
@@ -35,18 +37,28 @@ public class GravityOfBirdTask extends TimerTask {
     @Override
     public void run() {
         time++;
-        velocity = velocity+gravitationConstant*timestep;
+        velocity = velocity+gravitationConstant*(timestep/1000);
         leftoverVelocity = leftoverVelocity + velocity;
-        bird.setLocation(bird.getX(),(bird.getY()+ (int) leftoverVelocity));
+        bird.setLocation(bird.getX(),(bird.getY() + (int) leftoverVelocity));
         leftoverVelocity = leftoverVelocity - (int) leftoverVelocity;
         if (velocity>maxVelocity) velocity=maxVelocity;
-        if (new spaceListener().numberOfSpacePressed != numberOfSpacePressedInGravity)
-        {
-            velocity = -jumpPower;
-            bird.setLocation(bird.getX(),bird.getY()-(int)velocity);
-        }
+
 
     }
 
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        velocity = -0.3f;
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }

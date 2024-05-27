@@ -28,8 +28,9 @@ public class LogicFlappyBird  {
 
         java.util.Timer t = new Timer();
         t.schedule(new PipesLogicTask(Pane, 2000), 0, 5);
-        Pane.addKeyListener(new spaceListener());
-        t.schedule(new GravityOfBirdTask(bird, Pane, 0.001f, 5), 0, 1);
+        GravityOfBirdTask GOBT = new GravityOfBirdTask(bird, Pane, 1f, 5);
+        t.schedule(GOBT, 0, 1);
+        Pane.addKeyListener(GOBT);
     }
 
 }
